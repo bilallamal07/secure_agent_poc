@@ -34,5 +34,4 @@ While these patterns offer increased security, they often come at the cost of so
 Conclusion: Building Resilient LLM Agents
 Learning to mitigate prompt injection attacks involves understanding both the architectural vulnerabilities of LLMs and employing defensive design patterns effectively. The secure integration of LLM agents necessitates thoughtful system architecture, continuous adaptation, and, importantly, collaboration across various disciplines.
 
-Future work might focus on automating these defensive strategies, enhancing them with advanced security tools and formal verification methods, ultimately making the deployment of LLM-based systems a safer prospect across industries.
 
