@@ -13,16 +13,6 @@ venv/
 
 # Specific to this project
 secret_notes.txt
-MacSecure.txt
 uv.lock
 summary.txt
-*.pdf
 
-# macOS
-.DS_Store
-
-# IDEs
-.idea/
-.vscode/
-*.sublime-project
-*.sublime-workspace
