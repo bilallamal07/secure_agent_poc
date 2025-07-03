@@ -10,23 +10,15 @@ Principles of Secure LLM Agent Design
 Secure design is about balancing usability with security, ensuring that LLM agents are both functional and protected from exploitations like prompt injection. Here's how you can approach this:
 
 Key Concepts and Patterns
-1. Action-Selector Pattern
-Purpose: Limits agent actions to a predefined set of safe operations.
-Security Benefit: Prevents arbitrary actions that weren't anticipated during design.
-Example: If an agent is designed only to schedule meetings, it should not suddenly send emails.
-2. Plan-Then-Execute Pattern
-Purpose: Separates planning from execution, with a well-defined sequence set before processing untrusted input.
-Security Benefit: Ensures that the execution sequence remains unaltered by any malicious input.
-3. Dual LLM Pattern
-Purpose: Utilizes two LLMs: one for managing risky operations without viewing untrusted data, and another for handling untrusted data.
-Security Benefit: Ensures that critical operations are not influenced by potentially contaminated inputs.
-4. Code-Then-Execute Pattern
-Purpose: Generates code for desired actions before encountering untrusted data, executed in a safe environment.
-Security Benefit: Shields the system from code-level manipulations via crafted inputs.
-5. Context-Minimization Pattern
-Purpose: Strips unnecessary information from the interaction context.
-Security Benefit: Prevents unnecessary data from influencing decision-making in subsequent interactions.
-6. LLM Map-Reduce Pattern
+This project explores several key security patterns for LLM agents:
+
+*   **Prompt Injection:** A type of attack where malicious instructions are inserted into an LLM's input, overriding its original directives.
+*   **Dual LLM Pattern:** Separating a "Worker LLM" (handles untrusted data) from a "Manager LLM" (performs risky actions), ensuring the Manager never directly processes untrusted input.
+*   **Code-Then-Execute Pattern:** The agent's plan is generated as code *before* exposure to malicious data, and then executed by a secure interpreter.
+*   **Action-Selector Pattern:** The agent's capabilities are strictly limited to a predefined, hard-coded list of safe actions, preventing execution of unauthorized operations.
+*   **Plan-Then-Execute Pattern:** A Planner LLM creates a step-by-step plan, which is then executed by a separate, non-LLM Executor. The plan is static and created before any interaction with potentially malicious data.
+*   **Context-Minimisation Pattern:** A "Filter LLM" extracts only the absolutely necessary information from untrusted data, ensuring the main, privileged LLM never sees malicious instructions.
+*   **LLM Map-Reduce Pattern:** Large, untrusted data is processed in isolated chunks by sandboxed "Mapper LLMs," and their sanitized outputs are then combined by a "Reducer LLM," preventing widespread injection.
 Purpose: Processes data in isolated chunks and aggregates results securely.
 Security Benefit: Limits exposure to potential malicious content by breaking data into smaller, more manageable pieces.
 Applying the Design Patterns: Case Studies
