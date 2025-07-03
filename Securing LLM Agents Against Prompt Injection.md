@@ -28,6 +28,7 @@ OS Assistants: Employing Action-Selector patterns to prevent file deletions.
 Email Assistants: Utilizing Plan-Then-Execute to handle email content cautiously.
 SQL Agents: Applying Code-Then-Execute to safeguard against untrusted input in query generation.
 Customer Service Chatbots: Using Context Minimization to prevent undue influence from extensive conversational history.
+
 Security and Utility Trade-offs
 While these patterns offer increased security, they often come at the cost of some utility or flexibility. For instance, an overly restrictive action-selector pattern might limit the agent's usefulness in dynamic or complex environments. Thus, it's crucial to select patterns based on specific requirements and threat models.
 
